@@ -16,7 +16,6 @@
     --clr-neutral-dark-blue: hsl(223, 47%, 23%);
 
     --ff-primary: 'Red Hat Display', sans-serif;
-    --fs-paragraph: 1rem;
 }
 
 * {
@@ -28,7 +27,9 @@
 }
 
 body {
-    background-color: var(--clr-primary-pale-blue);
+    background: url(./images/pattern-background-mobile.svg) no-repeat, var(--clr-primary-pale-blue);
+    background-size: contain;
+    font-family: var(--ff-primary);
     height: 100vh;
 
     display: flex;
@@ -37,7 +38,8 @@ body {
 }
 
 .container {
-    width: 90%;
+    max-width: 90%;
+    max-height: 100%;
 }
 
 header > img {
@@ -48,17 +50,12 @@ header > img {
 
 main {
     background-color: white;
-    width: 100%;
-    padding: 2rem 2rem 1.5rem 1.5rem;
-    gap: 2rem;
+    padding: 2rem 1.5rem;
+    gap: 1.75rem;
     border-radius: 0 0 1.25rem 1.25rem;
 
     display: flex;
     flex-direction: column;
-}
-
-article {
-    font-family: var(--ff-primary);    
 }
 
 article > h1 {
@@ -70,11 +67,126 @@ article > h1 {
 }
 
 article > p {
-    font-size: var(--fs-paragraph);
+    font-size: 1rem;
     text-align: center;
     color: var(--clr-neutral-desaturated-blue);
     line-height: 1.5rem;
     margin: 0 0.5rem;
 }
 
+section.plan-box {
+    display: flex;
+    align-items: center;
+    gap: 7%;
+    padding: 6%;
+    background-color: var(--clr-neutral-very-bright-blue);
+    border-radius: 0.75rem;
+    flex-wrap: wrap;
+}
 
+.plan-change-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.plan-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.plan-details p:first-child {
+    font-size: 0.875rem;
+    color: var(--clr-neutral-dark-blue);
+    font-weight: 900;
+    text-align: center;
+}
+
+.plan-details p:last-child {
+    font-size: 0.875rem;
+    color: var(--clr-neutral-desaturated-blue);
+    font-weight: 500;
+}
+
+.plan-change-box > a {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-decoration: underline;
+    color: var(--clr-primary-bright-blue);
+    transition: all .2s ease;
+}
+
+.plan-change-box > a:hover {
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+section.button-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+a.proceed-button {
+    font-size: 0.9375rem;
+
+    color: white;
+    background-color: var(--clr-primary-bright-blue);
+    font-weight: 700;
+    
+    padding: 0.9125rem 0;
+    text-align: center;
+    border-radius: 0.75rem;
+
+    box-shadow: 0 1rem 20px rgba(0, 0, 0, 0.2);
+    transition: all .2s ease
+}
+
+a.proceed-button:hover {
+    opacity: 0.7;
+}
+
+a.cancel-button {
+    font-size: 0.875rem;
+    font-weight: 900;
+    color: var(--clr-neutral-desaturated-blue);
+    
+    margin: 1.75rem auto 0;
+    transition: all .2s ease
+}
+
+a.cancel-button:hover {
+    color: var(--clr-neutral-dark-blue);
+}
+
+@media screen and (min-width: 500px) {
+    body {
+        background-image: url(./images/pattern-background-desktop.svg);
+        background-repeat: repeat-x;
+        background-position: top center;
+        background-size: 1480px;
+    }
+
+    .container {
+        max-width: 450px;
+    }
+
+    main {
+        padding: 3rem;
+    }
+
+    .plan-details p:first-child,
+    .plan-details p:last-child {
+        font-size: var(--ff-primary);
+    }
+
+    .plan-change-box > a {
+        font-size: 0.875rem;
+    }
+
+    article > h1 {
+        font-size: 1.75rem;
+    }    
+}
